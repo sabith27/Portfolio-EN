@@ -224,7 +224,7 @@ p {
     align-items: center;
     padding-top: 80px;
     background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)),
-                url('./custom-qa-bg.jpg') center/cover no-repeat fixed;
+                url('./qa-hero-bg.jpg') center/cover no-repeat fixed;
 }
 
 .hero-content {
@@ -363,7 +363,7 @@ p {
 /* Skills Section */
 .skills {
     background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-                url('./assets/images/qa-skills-bg.png') center/cover no-repeat fixed;
+                url('./qa-skills-bg.png') center/cover no-repeat fixed;
 }
 .skills-container {
     display: grid;
