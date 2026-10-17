@@ -447,13 +447,63 @@ p {
 }
 
 /* Projects Section */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+.projects-carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.project-nav {
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.project-nav:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: var(--bg-main);
+    transform: translateY(-2px);
+}
+
+.project-nav:focus-visible {
+    outline: 2px solid var(--primary-hover);
+    outline-offset: 3px;
+}
+
+.project-nav:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.projects-carousel-track {
+    display: flex;
     gap: 2.5rem;
+    overflow-x: auto;
+    padding: 0.75rem 0.5rem 1.5rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+}
+
+.projects-carousel-track::-webkit-scrollbar {
+    display: none;
 }
 
 .project-card {
+    flex: 0 0 calc((100% - 2.5rem) / 2);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -462,6 +512,9 @@ p {
     transition: var(--transition);
     border: 1px solid var(--glass-border);
     height: 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -529,6 +582,10 @@ p {
     background: var(--primary-light);
     padding: 0.3rem 0.8rem;
     border-radius: 50px;
+}
+
+.project-actions {
+    margin-top: 1.5rem;
 }
 
 /* Resume Section */
@@ -846,6 +903,16 @@ footer {
     }
 }
 
+@media (max-width: 900px) {
+    .projects-carousel-track {
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        flex-basis: calc((100% - 1.5rem) / 2);
+    }
+}
+
 /* Tablets Portrait & Large Mobile (481px - 768px) */
 @media (max-width: 768px) {
     .hero {
@@ -952,8 +1019,17 @@ footer {
         padding: 4rem 0;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
+}
+
+@media (max-width: 700px) {
+    .project-card {
+        flex-basis: 84%;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-card {
+        flex-basis: 100%;
     }
 }
 
