@@ -127,7 +127,7 @@
                     <div class="skill-category">
                         <h3>Java & Development</h3>
                         <div class="skill-tags">
-                            <span class="tag"><i class="fab fa-java"></i> Java (Core Java)</span>
+                            <span class="tag"><i class="fab fa-java"></i> Java</span>
                             <span class="tag"><i class="fas fa-code"></i> OOP Concepts</span>
                             <span class="tag"><i class="fas fa-database"></i> SQL</span>
                         </div>
@@ -185,7 +185,16 @@
                     <div class="line"></div>
                 </div>
 
-                <div class="projects-grid">
+                <div class="projects-carousel-controls" aria-label="Project carousel controls">
+                    <button class="project-nav project-nav-prev" type="button" aria-label="Previous projects" aria-controls="projectsTrack" disabled>
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="project-nav project-nav-next" type="button" aria-label="Next projects" aria-controls="projectsTrack">
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+                <div class="projects-carousel-track" id="projectsTrack" role="region" aria-roledescription="carousel" aria-label="Projects" tabindex="0">
                     <div class="project-card fade-in">
                         <div class="project-content">
                             <div class="project-icon">
@@ -231,6 +240,31 @@
                                 <span>Authentication</span>
                                 <span>Bug Lifecycle</span>
                                 <span>Boundary Testing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-in" style="transition-delay: 0.4s;">
+                        <div class="project-content">
+                            <div class="project-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3>Personal Portfolio Website</h3>
+                            <p>Designed and developed a responsive personal portfolio website to showcase my technical skills, projects, and professional achievements.</p>
+                            <ul class="project-details">
+                                <li><i class="fas fa-check-circle"></i> Developed the website using HTML, CSS, and JavaScript.</li>
+                                <li><i class="fas fa-check-circle"></i> Created sections for Home, About, Skills, Projects, Resume, and Contact.</li>
+                                <li><i class="fas fa-check-circle"></i> Implemented a responsive layout for different screen sizes.</li>
+                                <li><i class="fas fa-check-circle"></i> Published the website using GitHub Pages.</li>
+                            </ul>
+                            <div class="project-tools">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                                <span>GitHub Pages</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://sabith27.github.io/Portfolio-EN/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Live Demo</a>
                             </div>
                         </div>
                     </div>
@@ -292,7 +326,7 @@
                 <div class="contact-grid fade-in">
                     <div class="contact-info">
                         <h3>Contact Information</h3>
-                        <p>I am always open to discussing Java Developer and QA opportunities, particularly those connected to the Japanese IT sector.</p>
+                        <P>I’m open to Java Developer, Software Testing, and Web Development opportunities in Japan.</P>
 
                         <div class="info-items">
                             <a href="mailto:sabithmohammed2006@gmail.com" class="info-item">
