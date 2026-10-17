@@ -16,6 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const projectTrack = document.querySelector('.projects-carousel-track');
+    const previousProjectButton = document.querySelector('.project-nav-prev');
+    const nextProjectButton = document.querySelector('.project-nav-next');
+
+    if (projectTrack && previousProjectButton && nextProjectButton) {
+        const updateProjectNavigation = () => {
+            const maxScrollLeft = projectTrack.scrollWidth - projectTrack.clientWidth;
+            previousProjectButton.disabled = projectTrack.scrollLeft <= 1;
+            nextProjectButton.disabled = maxScrollLeft <= 1 || projectTrack.scrollLeft >= maxScrollLeft - 1;
+        };
+
+        const moveProjects = direction => {
+            const firstCard = projectTrack.querySelector('.project-card');
+            if (!firstCard) return;
+
+            const gap = parseFloat(getComputedStyle(projectTrack).columnGap) || 0;
+            projectTrack.scrollBy({
+                left: direction * (firstCard.getBoundingClientRect().width + gap),
+                behavior: 'smooth'
+            });
+        };
+
+        previousProjectButton.addEventListener('click', () => moveProjects(-1));
+        nextProjectButton.addEventListener('click', () => moveProjects(1));
+        projectTrack.addEventListener('scroll', () => requestAnimationFrame(updateProjectNavigation), { passive: true });
+        window.addEventListener('resize', updateProjectNavigation);
+        updateProjectNavigation();
+    }
+
     // Header Scroll Effect & Active Link Highlight & Scroll to Top
     const header = document.querySelector('.header');
     const sections = document.querySelectorAll('section');
